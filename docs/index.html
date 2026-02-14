@@ -1,235 +1,177 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="color-scheme" content="dark" />
-    <title>Andrey Syrchin — Portfolio</title>
-    <meta name="description" content="One-page portfolio for Andrey Syrchin. Bright colors, modern adaptive design." />
+    <meta name="color-scheme" content="light" />
+    <title>Артем Мастеров — портфолио</title>
+    <meta
+      name="description"
+      content="Одностраничное портфолио Артема Мастерова. Яркие цвета, современный адаптивный дизайн."
+    />
+
     <style>
       :root{
-        --bg0:#070A12;
-        --bg1:#0B1022;
-        --card:rgba(255,255,255,.06);
-        --card2:rgba(255,255,255,.09);
-        --text:#EAF1FF;
-        --muted:#A9B3D6;
-        --line:rgba(255,255,255,.12);
-        --aqua:#22D3EE;
-        --violet:#A78BFA;
-        --pink:#FB7185;
-        --amber:#FBBF24;
-        --lime:#A3E635;
-        --shadow: 0 24px 70px rgba(0,0,0,.55);
+        --bg0:#ffffff;
+        --bg1:#f6f8ff;
+        --card:#ffffff;
+        --text:#0f172a;
+        --muted:#475569;
+        --line:rgba(15, 23, 42, .12);
+        --shadow: 0 18px 55px rgba(15, 23, 42, .12);
+
+        /* Bright (not “futuristic/neon”) accents */
+        --blue:#2563eb;
+        --orange:#f97316;
+        --pink:#db2777;
+        --green:#16a34a;
+        --purple:#7c3aed;
       }
 
       *{ box-sizing:border-box; }
       html{ scroll-behavior:smooth; }
-      html,body{ height:100%; }
       body{
         margin:0;
         font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
-        color:var(--text);
+        color: var(--text);
         background:
-          radial-gradient(1100px 900px at 15% 20%, rgba(34,211,238,.20), transparent 60%),
-          radial-gradient(1000px 800px at 85% 30%, rgba(167,139,250,.18), transparent 62%),
-          radial-gradient(1200px 900px at 65% 95%, rgba(251,113,133,.12), transparent 55%),
-          radial-gradient(900px 700px at 55% 15%, rgba(251,191,36,.10), transparent 55%),
+          radial-gradient(900px 700px at 12% 18%, rgba(37, 99, 235, .20), transparent 60%),
+          radial-gradient(900px 700px at 88% 22%, rgba(249, 115, 22, .16), transparent 60%),
+          radial-gradient(1100px 900px at 50% 95%, rgba(22, 163, 74, .14), transparent 60%),
+          radial-gradient(900px 700px at 70% 80%, rgba(219, 39, 119, .12), transparent 55%),
           linear-gradient(180deg, var(--bg0), var(--bg1));
-        overflow-x:hidden;
       }
 
-      .grid{
-        position:fixed;
-        inset:0;
-        background:
-          linear-gradient(to right, rgba(255,255,255,.06) 1px, transparent 1px),
-          linear-gradient(to bottom, rgba(255,255,255,.06) 1px, transparent 1px);
-        background-size: 56px 56px;
-        opacity:.10;
-        pointer-events:none;
-        mask-image: radial-gradient(ellipse at center, rgba(0,0,0,.9), transparent 72%);
-      }
-
-      .scan{
-        position:fixed;
-        left:-20%;
-        right:-20%;
-        top:-10%;
-        height:220px;
-        background: linear-gradient(180deg, transparent, rgba(34,211,238,.08), transparent);
-        transform: rotate(-6deg);
-        filter: blur(0.3px);
-        opacity:.9;
-        animation: scan 7.5s ease-in-out infinite;
-        pointer-events:none;
-      }
-      @keyframes scan{
-        0%{ transform: translateY(-140px) rotate(-6deg); opacity:.55; }
-        50%{ transform: translateY(50vh) rotate(-6deg); opacity:.95; }
-        100%{ transform: translateY(calc(100vh + 140px)) rotate(-6deg); opacity:.55; }
-      }
+      a{ color: inherit; }
 
       .wrap{
-        min-height:100%;
+        min-height:100svh;
         display:flex;
-        align-items:center;
         justify-content:center;
-        padding: 48px 18px;
+        padding: 44px 18px;
       }
 
-      .shell{
-        width: min(1060px, 100%);
+      .container{
+        width: min(1120px, 100%);
         display:grid;
-        grid-template-columns: 1.25fr .85fr;
+        grid-template-columns: 1.2fr .8fr;
         gap: 18px;
+        align-items:start;
       }
-      @media (max-width: 900px){
-        .shell{ grid-template-columns: 1fr; }
+      @media (max-width: 920px){
+        .container{ grid-template-columns: 1fr; }
       }
 
       .card{
-        position:relative;
         border:1px solid var(--line);
-        background: linear-gradient(180deg, var(--card), rgba(255,255,255,.03));
+        background: rgba(255,255,255,.92);
         border-radius: 18px;
         box-shadow: var(--shadow);
         overflow:hidden;
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
       }
-      .card::before{
-        content:"";
-        position:absolute;
-        inset:-2px;
-        background: radial-gradient(600px 220px at 20% 10%, rgba(34,211,238,.22), transparent 60%),
-                    radial-gradient(520px 260px at 90% 10%, rgba(167,139,250,.18), transparent 58%);
-        opacity:.9;
-        pointer-events:none;
-      }
-      .card > *{ position:relative; }
 
-      header{
-        padding: 26px 26px 14px;
+      header.hero{
+        padding: 26px 26px 18px;
         display:flex;
-        align-items:flex-start;
-        justify-content:space-between;
         gap: 18px;
+        justify-content:space-between;
+        align-items:flex-start;
+      }
+      @media (max-width: 700px){
+        header.hero{ flex-direction:column; }
       }
 
       .brand{
         display:flex;
-        align-items:center;
         gap: 12px;
+        align-items:center;
       }
-      .mark{
-        width:42px;
-        height:42px;
+      .logo{
+        width:44px;
+        height:44px;
         border-radius: 14px;
         background:
-          radial-gradient(14px 14px at 30% 30%, rgba(255,255,255,.55), transparent 60%),
-          linear-gradient(135deg, rgba(34,211,238,.95), rgba(167,139,250,.95), rgba(251,113,133,.9));
-        box-shadow: 0 10px 28px rgba(34,211,238,.18), 0 10px 28px rgba(167,139,250,.14), 0 10px 28px rgba(251,113,133,.10);
-        border:1px solid rgba(255,255,255,.18);
+          radial-gradient(14px 14px at 30% 30%, rgba(255,255,255,.75), transparent 60%),
+          linear-gradient(135deg, var(--blue), var(--purple), var(--pink));
+        border:1px solid rgba(15, 23, 42, .10);
+        box-shadow:
+          0 14px 30px rgba(37, 99, 235, .18),
+          0 14px 30px rgba(124, 58, 237, .14),
+          0 14px 30px rgba(219, 39, 119, .12);
       }
 
       .kicker{
         font-size: 12px;
-        letter-spacing: .22em;
+        letter-spacing: .20em;
         text-transform: uppercase;
-        color: rgba(234,241,255,.78);
+        color: rgba(15, 23, 42, .65);
       }
-
       h1{
-        margin:6px 0 0;
-        font-size: clamp(28px, 4.2vw, 44px);
-        line-height: 1.06;
+        margin: 6px 0 0;
+        font-size: clamp(30px, 4vw, 46px);
+        line-height: 1.08;
       }
       .subtitle{
         margin: 10px 0 0;
         color: var(--muted);
+        line-height: 1.65;
+        max-width: 66ch;
         font-size: 15px;
-        line-height: 1.6;
-        max-width: 62ch;
       }
 
-      .nav{
+      nav.topnav{
         display:flex;
         flex-wrap:wrap;
         gap: 10px;
         justify-content:flex-end;
         align-items:center;
-        padding-top: 2px;
       }
-      .nav a{
-        color: rgba(234,241,255,.9);
+      nav.topnav a{
         text-decoration:none;
         font-size: 13px;
-        font-weight: 700;
-        letter-spacing:.06em;
+        font-weight: 800;
+        letter-spacing: .06em;
         text-transform: uppercase;
-        padding: 9px 10px;
+        padding: 9px 11px;
         border-radius: 999px;
-        border:1px solid rgba(255,255,255,.14);
-        background: rgba(255,255,255,.05);
+        border:1px solid rgba(15, 23, 42, .12);
+        background: rgba(255,255,255,.92);
         transition: transform .15s ease, background .15s ease, border-color .15s ease;
       }
-      .nav a:hover{
+      nav.topnav a:hover{
         transform: translateY(-1px);
-        background: rgba(255,255,255,.08);
-        border-color: rgba(255,255,255,.22);
+        background: #fff;
+        border-color: rgba(15, 23, 42, .18);
       }
 
-      .badgeRow{
-        display:flex;
-        flex-wrap:wrap;
-        gap: 10px;
-        justify-content:flex-end;
-        padding-top: 3px;
-      }
-      .badge{
-        border:1px solid rgba(255,255,255,.14);
-        background: rgba(255,255,255,.06);
-        padding: 9px 12px;
-        border-radius: 999px;
-        color: rgba(234,241,255,.9);
-        font-size: 13px;
-        display:inline-flex;
-        gap: 8px;
-        align-items:center;
-        white-space:nowrap;
-      }
-      .dot{
-        width:8px;
-        height:8px;
-        border-radius: 99px;
-        background: var(--aqua);
-        box-shadow: 0 0 0 4px rgba(34,211,238,.12);
-      }
-      .dot.v{ background: var(--violet); box-shadow: 0 0 0 4px rgba(167,139,250,.12); }
-      .dot.l{ background: var(--lime); box-shadow: 0 0 0 4px rgba(163,230,53,.10); }
-      .dot.p{ background: var(--pink); box-shadow: 0 0 0 4px rgba(251,113,133,.10); }
-      .dot.a{ background: var(--amber); box-shadow: 0 0 0 4px rgba(251,191,36,.12); }
-
-      main{ padding: 0 26px 24px; }
       .divider{
         height:1px;
-        background: linear-gradient(90deg, transparent, rgba(255,255,255,.18), transparent);
+        background: linear-gradient(90deg, transparent, rgba(15, 23, 42, .16), transparent);
         margin: 8px 0 18px;
       }
 
-      .panels{
+      main{
+        padding: 0 26px 26px;
+      }
+
+      .section{
+        scroll-margin-top: 14px;
+        margin-top: 18px;
+      }
+      .section:first-child{ margin-top: 0; }
+
+      .grid2{
         display:grid;
         grid-template-columns: 1fr 1fr;
         gap: 14px;
       }
-      @media (max-width: 700px){
-        .panels{ grid-template-columns: 1fr; }
+      @media (max-width: 760px){
+        .grid2{ grid-template-columns: 1fr; }
       }
 
       .panel{
-        border:1px solid rgba(255,255,255,.12);
-        background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
+        border:1px solid rgba(15, 23, 42, .10);
+        background: rgba(255,255,255,.96);
         border-radius: 16px;
         padding: 16px 16px 14px;
       }
@@ -238,32 +180,88 @@
         font-size: 14px;
         letter-spacing: .14em;
         text-transform: uppercase;
-        color: rgba(234,241,255,.86);
+        color: rgba(15, 23, 42, .75);
       }
       .panel p{
-        margin:0;
+        margin: 0;
         color: var(--muted);
-        line-height: 1.6;
+        line-height: 1.65;
         font-size: 14px;
       }
 
-      .section{
-        scroll-margin-top: 14px;
+      .cta{
+        display:flex;
+        flex-wrap:wrap;
+        gap: 10px;
+        margin-top: 14px;
+      }
+      .btn{
+        display:inline-flex;
+        align-items:center;
+        gap: 10px;
+        padding: 11px 14px;
+        border-radius: 14px;
+        border: 1px solid rgba(15, 23, 42, .12);
+        background: rgba(255,255,255,.95);
+        color: rgba(15, 23, 42, .90);
+        text-decoration:none;
+        font-weight: 800;
+        font-size: 14px;
+        transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      }
+      .btn:hover{
+        transform: translateY(-1px);
+        background: #fff;
+        border-color: rgba(15, 23, 42, .18);
+      }
+      .btn.primary{
+        background: linear-gradient(135deg, rgba(37, 99, 235, .16), rgba(124, 58, 237, .14));
+        border-color: rgba(37, 99, 235, .22);
+      }
+      .btn.accent{
+        background: linear-gradient(135deg, rgba(249, 115, 22, .16), rgba(219, 39, 119, .12));
+        border-color: rgba(249, 115, 22, .22);
       }
 
-      .cards3{
+      .tags{
+        display:flex;
+        flex-wrap:wrap;
+        gap: 10px;
+        margin-top: 12px;
+      }
+      .tag{
+        border:1px solid rgba(15, 23, 42, .12);
+        background: rgba(255,255,255,.92);
+        padding: 9px 12px;
+        border-radius: 999px;
+        font-size: 13px;
+        display:inline-flex;
+        align-items:center;
+        gap: 8px;
+        color: rgba(15, 23, 42, .86);
+      }
+      .dot{
+        width:8px;height:8px;border-radius:999px;
+        background: var(--blue);
+        box-shadow: 0 0 0 4px rgba(37, 99, 235, .14);
+      }
+      .dot.o{ background: var(--orange); box-shadow: 0 0 0 4px rgba(249, 115, 22, .14); }
+      .dot.p{ background: var(--pink); box-shadow: 0 0 0 4px rgba(219, 39, 119, .14); }
+      .dot.g{ background: var(--green); box-shadow: 0 0 0 4px rgba(22, 163, 74, .14); }
+      .dot.u{ background: var(--purple); box-shadow: 0 0 0 4px rgba(124, 58, 237, .14); }
+
+      .projects{
         display:grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 14px;
       }
-      @media (max-width: 900px){
-        .cards3{ grid-template-columns: 1fr; }
+      @media (max-width: 920px){
+        .projects{ grid-template-columns: 1fr; }
       }
-
-      .projectTitle{
+      .projectHead{
         display:flex;
-        align-items:center;
         justify-content:space-between;
+        align-items:center;
         gap: 10px;
         margin-bottom: 8px;
       }
@@ -271,94 +269,76 @@
         font-size: 12px;
         padding: 7px 10px;
         border-radius: 999px;
-        border:1px solid rgba(255,255,255,.14);
-        background: rgba(255,255,255,.05);
-        color: rgba(234,241,255,.86);
+        border:1px solid rgba(15, 23, 42, .12);
+        background: rgba(255,255,255,.92);
+        color: rgba(15, 23, 42, .70);
         white-space:nowrap;
       }
 
-      .ctaRow{
+      footer{
+        padding: 16px 26px 26px;
+        color: rgba(15, 23, 42, .58);
+        font-size: 12px;
         display:flex;
+        gap: 12px;
         flex-wrap:wrap;
-        gap: 10px;
-        margin-top: 16px;
-      }
-      .btn{
-        display:inline-flex;
         align-items:center;
-        gap:10px;
-        padding: 11px 14px;
-        border-radius: 14px;
-        border: 1px solid rgba(255,255,255,.16);
-        background: rgba(255,255,255,.06);
-        color: rgba(234,241,255,.92);
-        text-decoration:none;
-        font-weight: 600;
-        font-size: 14px;
-        transition: transform .15s ease, background .15s ease, border-color .15s ease;
-        user-select:none;
+        justify-content:space-between;
       }
-      .btn:hover{
-        transform: translateY(-1px);
-        background: rgba(255,255,255,.08);
-        border-color: rgba(255,255,255,.22);
-      }
-      .btn.primary{
-        background: linear-gradient(135deg, rgba(34,211,238,.22), rgba(167,139,250,.20));
-        border-color: rgba(34,211,238,.22);
-      }
-      .btn.accent{
-        background: linear-gradient(135deg, rgba(251,113,133,.18), rgba(251,191,36,.16));
-        border-color: rgba(251,191,36,.18);
+      .mono{
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        letter-spacing: .02em;
       }
 
-      .side{
+      /* Sidebar */
+      aside{
         padding: 18px;
       }
       .sideTop{
         display:flex;
         align-items:center;
         justify-content:space-between;
-        gap:12px;
+        gap: 12px;
         padding: 6px 6px 12px;
       }
-      .sideTop strong{ font-size: 14px; letter-spacing:.10em; text-transform:uppercase; }
+      .sideTop strong{
+        font-size: 14px;
+        letter-spacing: .10em;
+        text-transform: uppercase;
+      }
       .chip{
         font-size: 12px;
-        color: rgba(234,241,255,.86);
-        border:1px solid rgba(255,255,255,.14);
-        background: rgba(255,255,255,.05);
+        border:1px solid rgba(15, 23, 42, .12);
+        background: rgba(255,255,255,.92);
         padding: 8px 10px;
         border-radius: 999px;
+        color: rgba(15, 23, 42, .78);
       }
-
       .stats{
         display:grid;
         grid-template-columns: 1fr 1fr;
         gap: 12px;
       }
       .stat{
-        border:1px solid rgba(255,255,255,.12);
-        background: rgba(0,0,0,.12);
+        border:1px solid rgba(15, 23, 42, .10);
+        background: rgba(255,255,255,.96);
         border-radius: 16px;
         padding: 14px;
       }
       .stat .n{
         font-size: 22px;
-        font-weight: 800;
-        letter-spacing: .02em;
+        font-weight: 900;
       }
       .stat .t{
         margin-top: 6px;
         color: var(--muted);
         font-size: 13px;
-        line-height:1.5;
+        line-height: 1.5;
       }
-
-      .mini{
+      .note{
         margin-top: 12px;
-        border:1px dashed rgba(255,255,255,.18);
-        background: rgba(255,255,255,.03);
+        border:1px dashed rgba(15, 23, 42, .18);
+        background: rgba(255,255,255,.78);
         border-radius: 16px;
         padding: 14px;
         color: var(--muted);
@@ -366,207 +346,191 @@
         line-height: 1.6;
       }
 
-      footer{
-        padding: 16px 26px 26px;
-        color: rgba(234,241,255,.65);
-        font-size: 12px;
-        display:flex;
-        align-items:center;
-        justify-content:space-between;
-        gap: 12px;
-        flex-wrap:wrap;
-      }
-      .mono{
-        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-        letter-spacing: .02em;
-      }
-
-      /* Reduce motion accessibility */
       @media (prefers-reduced-motion: reduce){
-        .scan{ animation:none; display:none; }
         html{ scroll-behavior:auto; }
-        .btn{ transition:none; }
-        .nav a{ transition:none; }
+        .btn, nav.topnav a{ transition:none; }
       }
     </style>
   </head>
-  <body>
-    <div class="grid" aria-hidden="true"></div>
-    <div class="scan" aria-hidden="true"></div>
 
+  <body>
     <div class="wrap">
-      <div class="shell">
-        <section class="card" aria-label="Portfolio">
-          <header>
+      <div class="container">
+        <section class="card" aria-label="Портфолио">
+          <header class="hero">
             <div class="brand">
-              <div class="mark" aria-hidden="true"></div>
+              <div class="logo" aria-hidden="true"></div>
               <div>
-                <div class="kicker">one-page portfolio</div>
-                <h1>Andrey Syrchin</h1>
+                <div class="kicker">одностраничное портфолио</div>
+                <h1>Артем Мастеров</h1>
                 <p class="subtitle">
-                  I build clean interfaces and small apps with an eye for speed, clarity, and bright modern visuals.
+                  Я делаю аккуратные интерфейсы и небольшие веб‑проекты. Люблю понятный дизайн, структуру и яркие акценты.
                 </p>
               </div>
             </div>
 
-            <nav class="nav" aria-label="Page navigation">
-              <a href="#about">About</a>
-              <a href="#projects">Projects</a>
-              <a href="#skills">Skills</a>
-              <a href="#contact">Contact</a>
+            <nav class="topnav" aria-label="Навигация по странице">
+              <a href="#about">Обо мне</a>
+              <a href="#projects">Проекты</a>
+              <a href="#skills">Навыки</a>
+              <a href="#contact">Контакты</a>
             </nav>
           </header>
 
           <main>
             <div class="divider" aria-hidden="true"></div>
 
-            <section id="about" class="section">
-              <div class="panels">
+            <section id="about" class="section" aria-label="Обо мне">
+              <div class="grid2">
                 <div class="panel">
-                  <h2>About</h2>
+                  <h2>Обо мне</h2>
                   <p>
-                    Hi, I’m <strong>Andrey Syrchin</strong>. This is a single-page portfolio with a bright, futuristic
-                    look and an adaptive layout for mobile and desktop.
+                    Привет! Я <strong>Артем Мастеров</strong>. Это одностраничное портфолио с яркими цветами и адаптивной
+                    версткой для телефона и компьютера.
                   </p>
                 </div>
                 <div class="panel">
-                  <h2>What I do</h2>
+                  <h2>Чем занимаюсь</h2>
                   <p>
-                    Frontend-focused development: landing pages, UI components, and small web apps.
-                    I care about readability, smooth UX, and performance.
+                    Верстаю лендинги, собираю UI‑компоненты и делаю небольшие веб‑приложения.
+                    Стараюсь, чтобы всё было читабельно, удобно и быстро.
                   </p>
                 </div>
+              </div>
+
+              <div class="cta" aria-label="Быстрые действия">
+                <a class="btn primary" href="#projects">Смотреть проекты</a>
+                <a class="btn accent" href="#contact">Написать мне</a>
+                <a class="btn" href="#skills">Мои навыки</a>
+              </div>
+
+              <div class="tags" aria-label="Ключевые слова">
+                <span class="tag"><span class="dot"></span> Чистый UI</span>
+                <span class="tag"><span class="dot o"></span> Яркие акценты</span>
+                <span class="tag"><span class="dot g"></span> Адаптив</span>
+                <span class="tag"><span class="dot p"></span> UX‑детали</span>
+                <span class="tag"><span class="dot u"></span> Компоненты</span>
               </div>
             </section>
 
-            <div class="ctaRow" aria-label="Quick actions">
-              <a class="btn primary" href="#projects">See projects</a>
-              <a class="btn accent" href="#contact">Contact me</a>
-              <a class="btn" href="#skills">View skills</a>
-            </div>
-
             <div class="divider" aria-hidden="true"></div>
 
-            <section id="projects" class="section" aria-label="Projects">
+            <section id="projects" class="section" aria-label="Проекты">
               <div class="panel" style="margin-bottom:14px;">
-                <h2>Projects</h2>
-                <p>Three placeholders you can rename later. The layout stays one page and remains responsive.</p>
+                <h2>Проекты</h2>
+                <p>Заглушки: можешь переименовать, добавить описание и ссылки на GitHub/демо.</p>
               </div>
 
-              <div class="cards3">
+              <div class="projects">
                 <article class="panel">
-                  <div class="projectTitle">
-                    <h2 style="margin:0;">Neon Landing</h2>
-                    <span class="pill">UI</span>
+                  <div class="projectHead">
+                    <h2 style="margin:0;">Landing Page</h2>
+                    <span class="pill">Дизайн</span>
                   </div>
-                  <p>Bright hero section + glass cards + clean typography. Great for a product page.</p>
+                  <p>Яркий первый экран, аккуратная сетка и понятная типографика.</p>
                 </article>
                 <article class="panel">
-                  <div class="projectTitle">
-                    <h2 style="margin:0;">Dashboard Lite</h2>
+                  <div class="projectHead">
+                    <h2 style="margin:0;">Mini Dashboard</h2>
                     <span class="pill">Web</span>
                   </div>
-                  <p>Simple analytics blocks, adaptive grid, and subtle motion with reduced-motion support.</p>
+                  <p>Карточки метрик, адаптивная сетка и аккуратные элементы интерфейса.</p>
                 </article>
                 <article class="panel">
-                  <div class="projectTitle">
-                    <h2 style="margin:0;">Portfolio One</h2>
-                    <span class="pill">One-page</span>
+                  <div class="projectHead">
+                    <h2 style="margin:0;">Portfolio</h2>
+                    <span class="pill">One page</span>
                   </div>
-                  <p>A compact single-page portfolio with anchors, bright accents, and fast loading.</p>
+                  <p>Одностраничный сайт с якорями, яркими акцентами и быстрой загрузкой.</p>
                 </article>
               </div>
             </section>
 
             <div class="divider" aria-hidden="true"></div>
 
-            <section id="skills" class="section" aria-label="Skills">
-              <div class="panels">
+            <section id="skills" class="section" aria-label="Навыки">
+              <div class="grid2">
                 <div class="panel">
-                  <h2>Skills</h2>
+                  <h2>Навыки</h2>
                   <p>
-                    <span class="badge"><span class="dot"></span> HTML/CSS</span>
-                    <span class="badge"><span class="dot v"></span> JavaScript</span>
-                    <span class="badge"><span class="dot p"></span> UI / UX</span>
-                    <span class="badge"><span class="dot a"></span> Performance</span>
-                    <span class="badge"><span class="dot l"></span> Responsive design</span>
+                    <span class="tag" style="margin:0 8px 8px 0;"><span class="dot"></span> HTML/CSS</span>
+                    <span class="tag" style="margin:0 8px 8px 0;"><span class="dot u"></span> JavaScript</span>
+                    <span class="tag" style="margin:0 8px 8px 0;"><span class="dot p"></span> UI / UX</span>
+                    <span class="tag" style="margin:0 8px 8px 0;"><span class="dot o"></span> Компоненты</span>
+                    <span class="tag" style="margin:0 8px 8px 0;"><span class="dot g"></span> Адаптив</span>
                   </p>
                 </div>
                 <div class="panel">
-                  <h2>Currently learning</h2>
-                  <p>Component systems, accessibility patterns, and building interfaces that feel “instant”.</p>
+                  <h2>Сейчас изучаю</h2>
+                  <p>Доступность (a11y), улучшение UI‑систем и приёмы, чтобы интерфейсы ощущались быстрыми.</p>
                 </div>
               </div>
             </section>
 
             <div class="divider" aria-hidden="true"></div>
 
-            <section id="contact" class="section" aria-label="Contact">
-              <div class="panels">
+            <section id="contact" class="section" aria-label="Контакты">
+              <div class="grid2">
                 <div class="panel">
-                  <h2>Contact</h2>
+                  <h2>Контакты</h2>
                   <p>
-                    Add your links here: email, Telegram, GitHub, LinkedIn.
-                    (Right now they are placeholders so the page works offline.)
+                    Сюда можно добавить реальные ссылки: почта, Telegram, GitHub, VK/LinkedIn.
+                    (Сейчас стоят заглушки, чтобы страница работала офлайн.)
                   </p>
-                  <div class="ctaRow" style="margin-top:12px;">
+                  <div class="cta" style="margin-top:12px;">
                     <a class="btn" href="#" onclick="return false;">Email</a>
                     <a class="btn" href="#" onclick="return false;">GitHub</a>
                     <a class="btn" href="#" onclick="return false;">Telegram</a>
                   </div>
                 </div>
                 <div class="panel">
-                  <h2>Status</h2>
-                  <p>
-                    Available for small projects and practice collaborations.
-                    If you want, I can customize this page with real project cards and links.
-                  </p>
+                  <h2>Статус</h2>
+                  <p>Открыт к небольшим проектам и совместной практике. Могу быстро обновить блоки под реальные кейсы.</p>
                 </div>
               </div>
             </section>
           </main>
 
           <footer>
-            <span>Bright accents + glass UI + adaptive grid — one-page portfolio.</span>
+            <span>Яркие акценты + чистый дизайн + адаптивная сетка — одностраничное портфолио.</span>
             <span class="mono" id="stamp">INIT</span>
           </footer>
         </section>
 
-        <aside class="card side" aria-label="Side panel">
+        <aside class="card" aria-label="Панель">
           <div class="sideTop">
-            <strong>Overview</strong>
-            <span class="chip">ONLINE</span>
+            <strong>Коротко</strong>
+            <span class="chip">READY</span>
           </div>
 
           <div class="stats" role="list">
             <div class="stat" role="listitem">
               <div class="n">01</div>
-              <div class="t">Format: one page</div>
+              <div class="t">Формат: одна страница</div>
             </div>
             <div class="stat" role="listitem">
               <div class="n">02</div>
-              <div class="t">Design: bright / clean</div>
+              <div class="t">Стиль: яркий / чистый</div>
             </div>
             <div class="stat" role="listitem">
               <div class="n">03</div>
-              <div class="t">Accents: aqua / violet / pink</div>
+              <div class="t">Акценты: синий / оранжевый / розовый</div>
             </div>
             <div class="stat" role="listitem">
               <div class="n">04</div>
-              <div class="t">Adaptive: mobile-first</div>
+              <div class="t">Адаптив: mobile-first</div>
             </div>
           </div>
 
-          <div class="mini">
-            Tip: tell me your real links (email, GitHub, Telegram) and 3 real projects — I’ll plug them in and keep the
-            same bright futuristic style.
+          <div class="note">
+            Подсказка: скинь почту/Telegram/GitHub и 2–3 реальных проекта — я подставлю их в «Проекты» и сделаю кнопки
+            рабочими.
           </div>
         </aside>
       </div>
     </div>
 
     <script>
-      // tiny, non-invasive dynamic stamp
       (function () {
         const el = document.getElementById("stamp");
         if (!el) return;
