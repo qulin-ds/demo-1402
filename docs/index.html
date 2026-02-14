@@ -1,8 +1,126 @@
-<html>  
-    <head>
-        <title>Первая страничка </title>
-    </head>
-    <body>
-        <h1>Привет,мир</h1>
-    </body>
-</html>
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="dark" />
+    <title>Артем Мастеров — студент</title>
+    <meta name="description" content="Персональная страница: Артем Мастеров, студент. Футуристичный дизайн, яркие сдержанные цвета." />
+    <style>
+      :root{
+        --bg0:#070A12;
+        --bg1:#0B1022;
+        --card:rgba(255,255,255,.06);
+        --card2:rgba(255,255,255,.09);
+        --text:#EAF1FF;
+        --muted:#A9B3D6;
+        --line:rgba(255,255,255,.12);
+        --aqua:#22D3EE;
+        --violet:#A78BFA;
+        --lime:#A3E635;
+        --shadow: 0 24px 70px rgba(0,0,0,.55);
+      }
+
+      *{ box-sizing:border-box; }
+      html,body{ height:100%; }
+      body{
+        margin:0;
+        font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
+        color:var(--text);
+        background:
+          radial-gradient(1100px 900px at 15% 20%, rgba(34,211,238,.16), transparent 60%),
+          radial-gradient(1000px 800px at 85% 30%, rgba(167,139,250,.16), transparent 62%),
+          radial-gradient(1200px 900px at 60% 95%, rgba(163,230,53,.09), transparent 55%),
+          linear-gradient(180deg, var(--bg0), var(--bg1));
+        overflow-x:hidden;
+      }
+
+      .grid{
+        position:fixed;
+        inset:0;
+        background:
+          linear-gradient(to right, rgba(255,255,255,.06) 1px, transparent 1px),
+          linear-gradient(to bottom, rgba(255,255,255,.06) 1px, transparent 1px);
+        background-size: 56px 56px;
+        opacity:.10;
+        pointer-events:none;
+        mask-image: radial-gradient(ellipse at center, rgba(0,0,0,.9), transparent 72%);
+      }
+
+      .scan{
+        position:fixed;
+        left:-20%;
+        right:-20%;
+        top:-10%;
+        height:220px;
+        background: linear-gradient(180deg, transparent, rgba(34,211,238,.08), transparent);
+        transform: rotate(-6deg);
+        filter: blur(0.3px);
+        opacity:.9;
+        animation: scan 7.5s ease-in-out infinite;
+        pointer-events:none;
+      }
+      @keyframes scan{
+        0%{ transform: translateY(-140px) rotate(-6deg); opacity:.55; }
+        50%{ transform: translateY(50vh) rotate(-6deg); opacity:.95; }
+        100%{ transform: translateY(calc(100vh + 140px)) rotate(-6deg); opacity:.55; }
+      }
+
+      .wrap{
+        min-height:100%;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        padding: 48px 18px;
+      }
+
+      .shell{
+        width: min(1060px, 100%);
+        display:grid;
+        grid-template-columns: 1.25fr .85fr;
+        gap: 18px;
+      }
+      @media (max-width: 900px){
+        .shell{ grid-template-columns: 1fr; }
+      }
+
+      .card{
+        position:relative;
+        border:1px solid var(--line);
+        background: linear-gradient(180deg, var(--card), rgba(255,255,255,.03));
+        border-radius: 18px;
+        box-shadow: var(--shadow);
+        overflow:hidden;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
+      .card::before{
+        content:"";
+        position:absolute;
+        inset:-2px;
+        background: radial-gradient(600px 220px at 20% 10%, rgba(34,211,238,.22), transparent 60%),
+                    radial-gradient(520px 260px at 90% 10%, rgba(167,139,250,.18), transparent 58%);
+        opacity:.9;
+        pointer-events:none;
+      }
+      .card > *{ position:relative; }
+
+      header{
+        padding: 26px 26px 14px;
+        display:flex;
+        align-items:flex-start;
+        justify-content:space-between;
+        gap: 18px;
+      }
+
+      .brand{
+        display:flex;
+        align-items:center;
+        gap: 12px;
+      }
+      .mark{
+        width:42px;
+        height:42px;
+        border-radius: 14px;
+        background:
+          radial-gradient(14px 14px at 30% 30%, rgba(255,255,255,.55),
