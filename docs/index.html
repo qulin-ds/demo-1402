@@ -1,11 +1,11 @@
 <!doctype html>
-<html lang="ru">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="dark" />
-    <title>Артем Мастеров — студент</title>
-    <meta name="description" content="Персональная страница: Артем Мастеров, студент. Футуристичный дизайн, яркие сдержанные цвета." />
+    <title>Andrey Syrchin — Portfolio</title>
+    <meta name="description" content="One-page portfolio for Andrey Syrchin. Bright colors, modern adaptive design." />
     <style>
       :root{
         --bg0:#070A12;
@@ -17,20 +17,24 @@
         --line:rgba(255,255,255,.12);
         --aqua:#22D3EE;
         --violet:#A78BFA;
+        --pink:#FB7185;
+        --amber:#FBBF24;
         --lime:#A3E635;
         --shadow: 0 24px 70px rgba(0,0,0,.55);
       }
 
       *{ box-sizing:border-box; }
+      html{ scroll-behavior:smooth; }
       html,body{ height:100%; }
       body{
         margin:0;
         font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, "Noto Sans", "Helvetica Neue", sans-serif;
         color:var(--text);
         background:
-          radial-gradient(1100px 900px at 15% 20%, rgba(34,211,238,.16), transparent 60%),
-          radial-gradient(1000px 800px at 85% 30%, rgba(167,139,250,.16), transparent 62%),
-          radial-gradient(1200px 900px at 60% 95%, rgba(163,230,53,.09), transparent 55%),
+          radial-gradient(1100px 900px at 15% 20%, rgba(34,211,238,.20), transparent 60%),
+          radial-gradient(1000px 800px at 85% 30%, rgba(167,139,250,.18), transparent 62%),
+          radial-gradient(1200px 900px at 65% 95%, rgba(251,113,133,.12), transparent 55%),
+          radial-gradient(900px 700px at 55% 15%, rgba(251,191,36,.10), transparent 55%),
           linear-gradient(180deg, var(--bg0), var(--bg1));
         overflow-x:hidden;
       }
@@ -123,4 +127,453 @@
         height:42px;
         border-radius: 14px;
         background:
-          radial-gradient(14px 14px at 30% 30%, rgba(255,255,255,.55),
+          radial-gradient(14px 14px at 30% 30%, rgba(255,255,255,.55), transparent 60%),
+          linear-gradient(135deg, rgba(34,211,238,.95), rgba(167,139,250,.95), rgba(251,113,133,.9));
+        box-shadow: 0 10px 28px rgba(34,211,238,.18), 0 10px 28px rgba(167,139,250,.14), 0 10px 28px rgba(251,113,133,.10);
+        border:1px solid rgba(255,255,255,.18);
+      }
+
+      .kicker{
+        font-size: 12px;
+        letter-spacing: .22em;
+        text-transform: uppercase;
+        color: rgba(234,241,255,.78);
+      }
+
+      h1{
+        margin:6px 0 0;
+        font-size: clamp(28px, 4.2vw, 44px);
+        line-height: 1.06;
+      }
+      .subtitle{
+        margin: 10px 0 0;
+        color: var(--muted);
+        font-size: 15px;
+        line-height: 1.6;
+        max-width: 62ch;
+      }
+
+      .nav{
+        display:flex;
+        flex-wrap:wrap;
+        gap: 10px;
+        justify-content:flex-end;
+        align-items:center;
+        padding-top: 2px;
+      }
+      .nav a{
+        color: rgba(234,241,255,.9);
+        text-decoration:none;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing:.06em;
+        text-transform: uppercase;
+        padding: 9px 10px;
+        border-radius: 999px;
+        border:1px solid rgba(255,255,255,.14);
+        background: rgba(255,255,255,.05);
+        transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      }
+      .nav a:hover{
+        transform: translateY(-1px);
+        background: rgba(255,255,255,.08);
+        border-color: rgba(255,255,255,.22);
+      }
+
+      .badgeRow{
+        display:flex;
+        flex-wrap:wrap;
+        gap: 10px;
+        justify-content:flex-end;
+        padding-top: 3px;
+      }
+      .badge{
+        border:1px solid rgba(255,255,255,.14);
+        background: rgba(255,255,255,.06);
+        padding: 9px 12px;
+        border-radius: 999px;
+        color: rgba(234,241,255,.9);
+        font-size: 13px;
+        display:inline-flex;
+        gap: 8px;
+        align-items:center;
+        white-space:nowrap;
+      }
+      .dot{
+        width:8px;
+        height:8px;
+        border-radius: 99px;
+        background: var(--aqua);
+        box-shadow: 0 0 0 4px rgba(34,211,238,.12);
+      }
+      .dot.v{ background: var(--violet); box-shadow: 0 0 0 4px rgba(167,139,250,.12); }
+      .dot.l{ background: var(--lime); box-shadow: 0 0 0 4px rgba(163,230,53,.10); }
+      .dot.p{ background: var(--pink); box-shadow: 0 0 0 4px rgba(251,113,133,.10); }
+      .dot.a{ background: var(--amber); box-shadow: 0 0 0 4px rgba(251,191,36,.12); }
+
+      main{ padding: 0 26px 24px; }
+      .divider{
+        height:1px;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,.18), transparent);
+        margin: 8px 0 18px;
+      }
+
+      .panels{
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+      @media (max-width: 700px){
+        .panels{ grid-template-columns: 1fr; }
+      }
+
+      .panel{
+        border:1px solid rgba(255,255,255,.12);
+        background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
+        border-radius: 16px;
+        padding: 16px 16px 14px;
+      }
+      .panel h2{
+        margin: 0 0 8px;
+        font-size: 14px;
+        letter-spacing: .14em;
+        text-transform: uppercase;
+        color: rgba(234,241,255,.86);
+      }
+      .panel p{
+        margin:0;
+        color: var(--muted);
+        line-height: 1.6;
+        font-size: 14px;
+      }
+
+      .section{
+        scroll-margin-top: 14px;
+      }
+
+      .cards3{
+        display:grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+      }
+      @media (max-width: 900px){
+        .cards3{ grid-template-columns: 1fr; }
+      }
+
+      .projectTitle{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap: 10px;
+        margin-bottom: 8px;
+      }
+      .pill{
+        font-size: 12px;
+        padding: 7px 10px;
+        border-radius: 999px;
+        border:1px solid rgba(255,255,255,.14);
+        background: rgba(255,255,255,.05);
+        color: rgba(234,241,255,.86);
+        white-space:nowrap;
+      }
+
+      .ctaRow{
+        display:flex;
+        flex-wrap:wrap;
+        gap: 10px;
+        margin-top: 16px;
+      }
+      .btn{
+        display:inline-flex;
+        align-items:center;
+        gap:10px;
+        padding: 11px 14px;
+        border-radius: 14px;
+        border: 1px solid rgba(255,255,255,.16);
+        background: rgba(255,255,255,.06);
+        color: rgba(234,241,255,.92);
+        text-decoration:none;
+        font-weight: 600;
+        font-size: 14px;
+        transition: transform .15s ease, background .15s ease, border-color .15s ease;
+        user-select:none;
+      }
+      .btn:hover{
+        transform: translateY(-1px);
+        background: rgba(255,255,255,.08);
+        border-color: rgba(255,255,255,.22);
+      }
+      .btn.primary{
+        background: linear-gradient(135deg, rgba(34,211,238,.22), rgba(167,139,250,.20));
+        border-color: rgba(34,211,238,.22);
+      }
+      .btn.accent{
+        background: linear-gradient(135deg, rgba(251,113,133,.18), rgba(251,191,36,.16));
+        border-color: rgba(251,191,36,.18);
+      }
+
+      .side{
+        padding: 18px;
+      }
+      .sideTop{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap:12px;
+        padding: 6px 6px 12px;
+      }
+      .sideTop strong{ font-size: 14px; letter-spacing:.10em; text-transform:uppercase; }
+      .chip{
+        font-size: 12px;
+        color: rgba(234,241,255,.86);
+        border:1px solid rgba(255,255,255,.14);
+        background: rgba(255,255,255,.05);
+        padding: 8px 10px;
+        border-radius: 999px;
+      }
+
+      .stats{
+        display:grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      .stat{
+        border:1px solid rgba(255,255,255,.12);
+        background: rgba(0,0,0,.12);
+        border-radius: 16px;
+        padding: 14px;
+      }
+      .stat .n{
+        font-size: 22px;
+        font-weight: 800;
+        letter-spacing: .02em;
+      }
+      .stat .t{
+        margin-top: 6px;
+        color: var(--muted);
+        font-size: 13px;
+        line-height:1.5;
+      }
+
+      .mini{
+        margin-top: 12px;
+        border:1px dashed rgba(255,255,255,.18);
+        background: rgba(255,255,255,.03);
+        border-radius: 16px;
+        padding: 14px;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.6;
+      }
+
+      footer{
+        padding: 16px 26px 26px;
+        color: rgba(234,241,255,.65);
+        font-size: 12px;
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap: 12px;
+        flex-wrap:wrap;
+      }
+      .mono{
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        letter-spacing: .02em;
+      }
+
+      /* Reduce motion accessibility */
+      @media (prefers-reduced-motion: reduce){
+        .scan{ animation:none; display:none; }
+        html{ scroll-behavior:auto; }
+        .btn{ transition:none; }
+        .nav a{ transition:none; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid" aria-hidden="true"></div>
+    <div class="scan" aria-hidden="true"></div>
+
+    <div class="wrap">
+      <div class="shell">
+        <section class="card" aria-label="Portfolio">
+          <header>
+            <div class="brand">
+              <div class="mark" aria-hidden="true"></div>
+              <div>
+                <div class="kicker">one-page portfolio</div>
+                <h1>Andrey Syrchin</h1>
+                <p class="subtitle">
+                  I build clean interfaces and small apps with an eye for speed, clarity, and bright modern visuals.
+                </p>
+              </div>
+            </div>
+
+            <nav class="nav" aria-label="Page navigation">
+              <a href="#about">About</a>
+              <a href="#projects">Projects</a>
+              <a href="#skills">Skills</a>
+              <a href="#contact">Contact</a>
+            </nav>
+          </header>
+
+          <main>
+            <div class="divider" aria-hidden="true"></div>
+
+            <section id="about" class="section">
+              <div class="panels">
+                <div class="panel">
+                  <h2>About</h2>
+                  <p>
+                    Hi, I’m <strong>Andrey Syrchin</strong>. This is a single-page portfolio with a bright, futuristic
+                    look and an adaptive layout for mobile and desktop.
+                  </p>
+                </div>
+                <div class="panel">
+                  <h2>What I do</h2>
+                  <p>
+                    Frontend-focused development: landing pages, UI components, and small web apps.
+                    I care about readability, smooth UX, and performance.
+                  </p>
+                </div>
+              </div>
+            </section>
+
+            <div class="ctaRow" aria-label="Quick actions">
+              <a class="btn primary" href="#projects">See projects</a>
+              <a class="btn accent" href="#contact">Contact me</a>
+              <a class="btn" href="#skills">View skills</a>
+            </div>
+
+            <div class="divider" aria-hidden="true"></div>
+
+            <section id="projects" class="section" aria-label="Projects">
+              <div class="panel" style="margin-bottom:14px;">
+                <h2>Projects</h2>
+                <p>Three placeholders you can rename later. The layout stays one page and remains responsive.</p>
+              </div>
+
+              <div class="cards3">
+                <article class="panel">
+                  <div class="projectTitle">
+                    <h2 style="margin:0;">Neon Landing</h2>
+                    <span class="pill">UI</span>
+                  </div>
+                  <p>Bright hero section + glass cards + clean typography. Great for a product page.</p>
+                </article>
+                <article class="panel">
+                  <div class="projectTitle">
+                    <h2 style="margin:0;">Dashboard Lite</h2>
+                    <span class="pill">Web</span>
+                  </div>
+                  <p>Simple analytics blocks, adaptive grid, and subtle motion with reduced-motion support.</p>
+                </article>
+                <article class="panel">
+                  <div class="projectTitle">
+                    <h2 style="margin:0;">Portfolio One</h2>
+                    <span class="pill">One-page</span>
+                  </div>
+                  <p>A compact single-page portfolio with anchors, bright accents, and fast loading.</p>
+                </article>
+              </div>
+            </section>
+
+            <div class="divider" aria-hidden="true"></div>
+
+            <section id="skills" class="section" aria-label="Skills">
+              <div class="panels">
+                <div class="panel">
+                  <h2>Skills</h2>
+                  <p>
+                    <span class="badge"><span class="dot"></span> HTML/CSS</span>
+                    <span class="badge"><span class="dot v"></span> JavaScript</span>
+                    <span class="badge"><span class="dot p"></span> UI / UX</span>
+                    <span class="badge"><span class="dot a"></span> Performance</span>
+                    <span class="badge"><span class="dot l"></span> Responsive design</span>
+                  </p>
+                </div>
+                <div class="panel">
+                  <h2>Currently learning</h2>
+                  <p>Component systems, accessibility patterns, and building interfaces that feel “instant”.</p>
+                </div>
+              </div>
+            </section>
+
+            <div class="divider" aria-hidden="true"></div>
+
+            <section id="contact" class="section" aria-label="Contact">
+              <div class="panels">
+                <div class="panel">
+                  <h2>Contact</h2>
+                  <p>
+                    Add your links here: email, Telegram, GitHub, LinkedIn.
+                    (Right now they are placeholders so the page works offline.)
+                  </p>
+                  <div class="ctaRow" style="margin-top:12px;">
+                    <a class="btn" href="#" onclick="return false;">Email</a>
+                    <a class="btn" href="#" onclick="return false;">GitHub</a>
+                    <a class="btn" href="#" onclick="return false;">Telegram</a>
+                  </div>
+                </div>
+                <div class="panel">
+                  <h2>Status</h2>
+                  <p>
+                    Available for small projects and practice collaborations.
+                    If you want, I can customize this page with real project cards and links.
+                  </p>
+                </div>
+              </div>
+            </section>
+          </main>
+
+          <footer>
+            <span>Bright accents + glass UI + adaptive grid — one-page portfolio.</span>
+            <span class="mono" id="stamp">INIT</span>
+          </footer>
+        </section>
+
+        <aside class="card side" aria-label="Side panel">
+          <div class="sideTop">
+            <strong>Overview</strong>
+            <span class="chip">ONLINE</span>
+          </div>
+
+          <div class="stats" role="list">
+            <div class="stat" role="listitem">
+              <div class="n">01</div>
+              <div class="t">Format: one page</div>
+            </div>
+            <div class="stat" role="listitem">
+              <div class="n">02</div>
+              <div class="t">Design: bright / clean</div>
+            </div>
+            <div class="stat" role="listitem">
+              <div class="n">03</div>
+              <div class="t">Accents: aqua / violet / pink</div>
+            </div>
+            <div class="stat" role="listitem">
+              <div class="n">04</div>
+              <div class="t">Adaptive: mobile-first</div>
+            </div>
+          </div>
+
+          <div class="mini">
+            Tip: tell me your real links (email, GitHub, Telegram) and 3 real projects — I’ll plug them in and keep the
+            same bright futuristic style.
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <script>
+      // tiny, non-invasive dynamic stamp
+      (function () {
+        const el = document.getElementById("stamp");
+        if (!el) return;
+        const d = new Date();
+        const pad = (n) => String(n).padStart(2, "0");
+        el.textContent = `SYNC ${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}`;
+      })();
+    </script>
+  </body>
+</html>
